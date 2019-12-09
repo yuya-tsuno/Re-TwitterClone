@@ -1,0 +1,16 @@
+<h1>ブログ一覧</h1>
+
+<table>
+  <tr>
+    <th>Yuyaのつぶやき</th>
+  </tr>
+
+<% @tweets.each do |tweet| %>
+  <tr>
+    <td><%= tweet.content %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'DIVE INTO CODEのページへ', 'https://diveintocode.jp/'  %>
+<%= link_to 'ツイート一覧画面にもどる', tweets_path %>
