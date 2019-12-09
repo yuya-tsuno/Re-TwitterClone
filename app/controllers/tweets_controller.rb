@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
 
-  before_action :set_tweet, only: [:edit, :update]
+  before_action :set_tweet, only: [:edit, :update, :destroy]
 
   def top
   end
@@ -28,13 +28,15 @@ class TweetsController < ApplicationController
 
   def update
     if @tweet.update(tweet_params)
-      redirect_to tweets_path, notice: "ブログを編集しました！"
+      redirect_to tweets_path, notice: "ツイートを編集しました！"
     else
       render :edit
     end
   end
 
   def destroy
+    @tweet.destroy
+    redirect_to tweets_path, notice:"ツイートを削除しました！"
   end
 
   private
